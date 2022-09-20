@@ -3,12 +3,11 @@ package com.example.dslearn.entities;
 import com.example.dslearn.entities.pk.EnrollmentPK;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +29,10 @@ public class Enrollment implements Serializable {
 
     private boolean available;
     private boolean onlyUpdate;
+
+    @Setter(AccessLevel.NONE)
+    @ManyToMany(mappedBy = "enrollmentsDone")
+    private Set<Lesson> lessonsDone = new HashSet<>();
 
     public Enrollment(User user, Offer offer, Instant enrolMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
         this.id.setUser(user);
