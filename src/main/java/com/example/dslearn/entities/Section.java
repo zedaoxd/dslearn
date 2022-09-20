@@ -1,21 +1,18 @@
 package com.example.dslearn.entities;
 
-import com.example.dslearn.entities.enums.ResourceType;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "tb_resource")
-@Setter
+@Table(name = "tb_section")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Resource implements Serializable {
+public class Section implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,13 +21,12 @@ public class Resource implements Serializable {
     private String description;
     private Integer position;
     private String imgUri;
-    private ResourceType type;
 
     @ManyToOne
-    @JoinColumn(name = "offer_id")
-    private Offer offer;
+    @JoinColumn(name = "resource_id")
+    private Resource resource;
 
-    @OneToMany(mappedBy = "resource")
-    @Setter(AccessLevel.NONE)
-    private List<Section> sections = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "prerequisite_id")
+    private Section prerequisite;
 }
