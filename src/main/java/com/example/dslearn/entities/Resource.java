@@ -10,11 +10,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_resource")
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 public class Resource implements Serializable {
 
     @Id

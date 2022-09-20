@@ -11,9 +11,7 @@ import java.util.Set;
 @Table(name = "tb_user")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class User implements Serializable {
 
     @Id

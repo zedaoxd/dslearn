@@ -7,11 +7,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_section")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 public class Section implements Serializable {
 
     @Id

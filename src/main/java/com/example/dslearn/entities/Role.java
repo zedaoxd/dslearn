@@ -9,9 +9,7 @@ import java.io.Serializable;
 @Table(name = "tb_role")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class Role implements Serializable {
 
     @Id
