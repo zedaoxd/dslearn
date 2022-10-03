@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -30,9 +31,9 @@ public class Task extends Lesson{
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dueDate;
 
-    public Task(Long id, String title, Integer position, Section section, Set<Enrollment> enrollmentsDone, String description,
-                Integer questionCount, Integer approvalCount, Double weight, Instant dueDate) {
-        super(id, title, position, section, enrollmentsDone);
+    public Task(Long id, String title, Integer position, Section section, Set<Enrollment> enrollmentsDone, List<Deliver> delivers,
+                List<Topic> topics, String description, Integer questionCount, Integer approvalCount, Double weight, Instant dueDate) {
+        super(id, title, position, section, enrollmentsDone, delivers, topics);
         this.description = description;
         this.questionCount = questionCount;
         this.approvalCount = approvalCount;

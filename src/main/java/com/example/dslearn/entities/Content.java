@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -21,8 +22,8 @@ public class Content extends Lesson{
 
     private String videoUri;
 
-    public Content(Long id, String title, Integer position, Section section, Set<Enrollment> enrollmentsDone, String textContent, String videoUri) {
-        super(id, title, position, section, enrollmentsDone);
+    public Content(Long id, String title, Integer position, Section section, Set<Enrollment> enrollmentsDone, List<Deliver> delivers, List<Topic> topics, String textContent, String videoUri) {
+        super(id, title, position, section, enrollmentsDone, delivers, topics);
         this.textContent = textContent;
         this.videoUri = videoUri;
     }

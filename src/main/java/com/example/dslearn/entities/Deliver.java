@@ -21,6 +21,7 @@ public class Deliver {
 
     private String uri;
 
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
 
     private DeliverStatus status;
