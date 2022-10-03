@@ -6,7 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -25,14 +27,19 @@ public class Enrollment implements Serializable {
     private Instant enrolMoment;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant refundMoment;
+    private Instant refundMoment = null;
 
-    private boolean available;
+    private boolean available = true;
+
     private boolean onlyUpdate;
 
     @Setter(AccessLevel.NONE)
     @ManyToMany(mappedBy = "enrollmentsDone")
     private Set<Lesson> lessonsDone = new HashSet<>();
+
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "enrollment")
+    private List<Deliver> delivers = new ArrayList<>();
 
     public Enrollment(User user, Offer offer, Instant enrolMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
         this.id.setUser(user);

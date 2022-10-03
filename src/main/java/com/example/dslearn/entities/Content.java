@@ -18,6 +18,7 @@ import java.util.Set;
 public class Content extends Lesson{
 
     private String textContent;
+
     private String videoUri;
 
     public Content(Long id, String title, Integer position, Section section, Set<Enrollment> enrollmentsDone, String textContent, String videoUri) {

@@ -4,7 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -18,7 +20,9 @@ public abstract class Lesson implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
     private Integer position;
 
     @ManyToOne
@@ -36,4 +40,8 @@ public abstract class Lesson implements Serializable {
             }
     )
     private Set<Enrollment> enrollmentsDone = new HashSet<>();
+
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "lesson")
+    private List<Deliver> delivers = new ArrayList<>();
 }

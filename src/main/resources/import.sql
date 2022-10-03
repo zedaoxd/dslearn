@@ -13,6 +13,8 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('um texto legal', TIMESTAMP WITH TIME ZONE '2020-10-20T03:00:00Z', true, 'um link aqui', 1);
+
 INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Bootcamp HTML', 'https://www.smartpassiveincome.com/wp-content/uploads/2020/04/How-to-Create-an-Online-Course.png', 'https://img.myloview.com.br/adesivos/online-course-icon-outline-online-course-vector-icon-for-web-design-isolated-on-white-background-700-231540222.jpg');
 
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2020-10-20T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-10-20T03:00:00Z', 1);
